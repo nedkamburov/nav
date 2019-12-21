@@ -1,6 +1,7 @@
 let currentCoords = [61.032637, 4.707087]; // Somewhere in Amsterdam, this is updated.
 // let targetCoords = [52.081587, 4.319679]; // Somewhere in the Hague, KABK.
-let targetCoords = [51.0499992, 3.71667]; // Somewhere in Gent, Belgium.
+// let targetCoords = [51.0499992, 3.71667]; // Somewhere in Gent, Belgium.
+let targetCoords = [36.3395171, 22.4037912]; // Somewhere in Seoul, South Korea
 let bearingDeg = 0;
 
 // -=-=-=-= Calculating the heading of the compass needle -=-=-=-=-=-=-=-=-=-=
@@ -48,7 +49,7 @@ navigator.geolocation.watchPosition(data => {
   window.addEventListener('deviceorientation', onHeadingChange);
   
   function onHeadingChange(e) {
-    console.log(e.alpha)
+    // console.log(e.alpha)
     let adjustment = e.alpha;
     document.querySelector('#compass').style.webkitTransform = 'rotateZ(' + adjustment + 'deg)';
     
