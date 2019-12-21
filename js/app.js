@@ -44,13 +44,13 @@ navigator.geolocation.watchPosition(data => {
   document.querySelector('#currentPosition').innerHTML = ` (Lat: ${data.coords.latitude}, Long: ${data.coords.longitude})`;
 });
 
-//TODO: Test the compensation for the device orientation
+// TODO: Test the compensation for the device orientation
   window.addEventListener('deviceorientation', onHeadingChange);
   
   function onHeadingChange(e) {
     console.log(e.alpha)
     let adjustment = e.alpha;
-    pointer.style.webkitTransform = 'rotateZ(' + bearingDeg - adjustment + 'deg)';
+    pointer.style.webkitTransform = 'rotateZ(' + adjustment + 'deg)';
   }
   
 
