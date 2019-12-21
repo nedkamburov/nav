@@ -40,7 +40,7 @@ navigator.geolocation.watchPosition(data => {
     targetCoords[1]
   );
   console.log(bearingDeg);
-  pointer.style.webkitTransform = 'rotateZ(' + bearingDeg + 'deg)';
+  // pointer.style.webkitTransform = 'rotateZ(' + bearingDeg + 'deg)';
   document.querySelector('#currentPosition').innerHTML = ` (Lat: ${data.coords.latitude}, Long: ${data.coords.longitude})`;
 });
 
