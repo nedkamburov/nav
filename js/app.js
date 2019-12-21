@@ -39,8 +39,8 @@ navigator.geolocation.watchPosition(data => {
     targetCoords[0],
     targetCoords[1]
   );
-  console.log(bearingDeg);
-  // pointer.style.webkitTransform = 'rotateZ(' + bearingDeg + 'deg)';
+  
+  pointer.style.webkitTransform = 'rotateZ(' + bearingDeg + 'deg)';
   document.querySelector('#currentPosition').innerHTML = ` (Lat: ${data.coords.latitude}, Long: ${data.coords.longitude})`;
 });
 
@@ -49,8 +49,9 @@ navigator.geolocation.watchPosition(data => {
   
   function onHeadingChange(e) {
     console.log(e.alpha)
+    console.log(bearingDeg);
     let adjustment = e.alpha;
-    pointer.style.webkitTransform = 'rotateZ(' + bearingDeg + adjustment + 'deg)';
+    rose.style.webkitTransform = 'rotateZ('  + adjustment + 'deg)';
   }
   
 
