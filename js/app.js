@@ -40,18 +40,18 @@ navigator.geolocation.watchPosition(data => {
     targetCoords[1]
   );
   console.log(bearingDeg);
-  // pointer.style.webkitTransform = 'rotateZ(' + bearingDeg + 'deg)';
+  pointer.style.webkitTransform = 'rotateZ(' + bearingDeg + 'deg)';
   document.querySelector('#currentPosition').innerHTML = ` (Lat: ${data.coords.latitude}, Long: ${data.coords.longitude})`;
 });
 
 //TODO: Test the compensation for the device orientation
-  // window.addEventListener('deviceorientation', onHeadingChange);
+  window.addEventListener('deviceorientation', onHeadingChange);
   
-  // function onHeadingChange(e) {
-  //   console.log(e.alpha)
-  //   let adjustment = e.alpha;
-  //   pointer.style.webkitTransform = 'rotateZ(' + bearingDeg - adjustment + 'deg)';
-  // }
+  function onHeadingChange(e) {
+    console.log(e.alpha)
+    let adjustment = e.alpha;
+    pointer.style.webkitTransform = 'rotateZ(' + bearingDeg - adjustment + 'deg)';
+  }
   
 
 
@@ -67,7 +67,7 @@ navigator.geolocation.watchPosition(data => {
 
 
 
-  
+
 
 //Compass UI
 // (function() {
