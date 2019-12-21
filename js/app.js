@@ -49,9 +49,9 @@ navigator.geolocation.watchPosition(data => {
   
   function onHeadingChange(e) {
     console.log(e.alpha)
-    console.log(bearingDeg);
     let adjustment = e.alpha;
-    rose.style.webkitTransform = 'rotateZ('  + adjustment + 'deg)';
+    document.querySelector('#compass').style.webkitTransform = 'rotateZ(' + adjustment + 'deg)';
+    
   }
   
 
