@@ -50,7 +50,7 @@ navigator.geolocation.watchPosition(data => {
   function onHeadingChange(e) {
     console.log(e.alpha)
     let adjustment = e.alpha;
-    pointer.style.webkitTransform = 'rotateZ(' + adjustment + 'deg)';
+    pointer.style.webkitTransform = 'rotateZ(' + bearingDeg + adjustment + 'deg)';
   }
   
 
