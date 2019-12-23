@@ -51,7 +51,7 @@ navigator.geolocation.watchPosition(data => {
   function onHeadingChange(e) {
     // console.log(e.alpha)
     let adjustment = e.alpha;
-    document.querySelector('#compass').style.webkitTransform = 'rotateZ(' + adjustment + 'deg)';
+    document.querySelector('#compass').style.webkitTransform = 'rotateZ(' + 360 - adjustment + 'deg)';
     
   }
   
