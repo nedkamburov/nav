@@ -63,12 +63,13 @@ function bearing(startLat, startLng, destLat, destLng) {
       if(event.webkitCompassHeading) {
         // Apple works only with this, alpha doesn't work
         compassdir = event.webkitCompassHeading;  
-        console.log(compassdir);
-            document.querySelector('#compass').style.webkitTransform = 'rotateZ(' + 360 - compassdir + 'deg)';
+        // console.log(compassdir);
+            document.querySelector('#compass').style.webkitTransform = 'rotateZ(' + compassdir + 'deg)';
+            document.querySelector('#headingDegrees').innerHTML = compassdir;
       }
       else compassdir = event.alpha;
-      console.log(compassdir);
-      document.querySelector('#compass').style.webkitTransform = 'rotateZ(' + 360 - compassdir + 'deg)';
+      document.querySelector('#headingDegrees').innerHTML = compassdir;
+      document.querySelector('#compass').style.webkitTransform = 'rotateZ(' + compassdir + 'deg)';
       
     });
 
