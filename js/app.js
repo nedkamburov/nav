@@ -31,19 +31,19 @@ function bearing(startLat, startLng, destLat, destLng) {
   return (brng + 360) % 360;
 }
 
-// navigator.geolocation.watchPosition(data => {
-//   currentCoords[0] = data.coords.latitude;
-//   currentCoords[1] = data.coords.longitude;
-//   bearingDeg = bearing(
-//     currentCoords[0],
-//     currentCoords[1],
-//     targetCoords[0],
-//     targetCoords[1]
-//   );
+navigator.geolocation.watchPosition(data => {
+  currentCoords[0] = data.coords.latitude;
+  currentCoords[1] = data.coords.longitude;
+  bearingDeg = bearing(
+    currentCoords[0],
+    currentCoords[1],
+    targetCoords[0],
+    targetCoords[1]
+  );
   
-//   // pointer.style.webkitTransform = 'rotateZ(' + bearingDeg + 'deg)';
-//   document.querySelector('#currentPosition').innerHTML = ` (Lat: ${data.coords.latitude}, Long: ${data.coords.longitude})`;
-// });
+  pointer.style.webkitTransform = 'rotateZ(' + bearingDeg + 'deg)';
+  document.querySelector('#currentPosition').innerHTML = ` (Lat: ${data.coords.latitude}, Long: ${data.coords.longitude})`;
+});
 
 // // TODO: Test the compensation for the device orientation
 //   window.addEventListener('deviceorientation', onHeadingChange);
@@ -64,10 +64,13 @@ function bearing(startLat, startLng, destLat, destLng) {
         // Apple works only with this, alpha doesn't work
         compassdir = event.webkitCompassHeading;  
         // console.log(compassdir);
+            rose.style.webkitTransform = 'rotateZ(' + compassdir + 'deg)';
             document.querySelector('#compass').style.webkitTransform = 'rotateZ(' + compassdir + 'deg)';
             document.querySelector('#headingDegrees').innerHTML = compassdir;
+
       }
       else compassdir = event.alpha;
+      rose.style.webkitTransform = 'rotateZ(' + compassdir + 'deg)';
       document.querySelector('#headingDegrees').innerHTML = compassdir;
       document.querySelector('#compass').style.webkitTransform = 'rotateZ(' + compassdir + 'deg)';
       
