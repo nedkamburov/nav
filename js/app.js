@@ -42,6 +42,7 @@ navigator.geolocation.watchPosition(data => {
   );
   
   // pointer.style.webkitTransform = 'rotateZ(' + bearingDeg + 'deg)';
+  document.querySelector('#headingDegrees').innerHTML = data.heading;
   document.querySelector('#currentPosition').innerHTML = ` (Lat: ${data.coords.latitude}, Long: ${data.coords.longitude})`;
 });
   
@@ -53,12 +54,14 @@ navigator.geolocation.watchPosition(data => {
       if(eventData.webkitCompassHeading) {
         // Apple works only with this, alpha doesn't work
         compassdir = eventData.webkitCompassHeading;  
-        document.querySelector('#pointer').style.webkitTransform = 'rotateZ(' + compassdir + 'deg)';
-        document.querySelector('#headingDegrees').innerHTML = compassdir;
+        console.log(compassdir);
+        // document.querySelector('#pointer').style.webkitTransform = 'rotateZ(' + compassdir + 'deg)';
+        document.querySelector('#alphaDegrees').innerHTML = compassdir;
       }
       else compassdir = eventData.alpha;
-      document.querySelector('#pointer').style.webkitTransform = 'rotateZ(' + compassdir + 'deg)';
-      document.querySelector('#headingDegrees').innerHTML = compassdir;
+      console.log(compassdir);
+      // document.querySelector('#pointer').style.webkitTransform = 'rotateZ(' + compassdir + 'deg)';
+      document.querySelector('#alphaDegrees').innerHTML = compassdir;
       
       
     });
