@@ -63,13 +63,13 @@ navigator.geolocation.watchPosition(data => {
       if(event.webkitCompassHeading) {
         // Apple works only with this, alpha doesn't work
         compassdir = event.webkitCompassHeading;  
-        document.querySelector('#compass').style.webkitTransform = 'rotateZ(' + compassdir + 'deg)';
+        document.querySelector('#rose').style.webkitTransform = 'rotateZ(' + compassdir + 'deg)';
         document.querySelector('#headingDegrees').innerHTML = compassdir;
             
 
       }
       else compassdir = event.alpha;
-      document.querySelector('#compass').style.webkitTransform = 'rotateZ(' + compassdir + 'deg)';
+      document.querySelector('#rose').style.webkitTransform = 'rotateZ(' + compassdir + 'deg)';
       document.querySelector('#headingDegrees').innerHTML = compassdir;
       
       
