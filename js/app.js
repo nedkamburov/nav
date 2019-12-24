@@ -54,11 +54,11 @@ if (window.DeviceOrientationEvent) {
 
     if (eventData.webkitCompassHeading) {
       // Apple works only with this, alpha doesn't work
-      compassdir = eventData.webkitCompassHeading;
+      compassdir = 360 - eventData.webkitCompassHeading;
       document.querySelector('#rose').style.webkitTransform =
         'rotateZ(' + compassdir + 'deg)';
       document.querySelector('#headingDegrees').innerHTML = compassdir;
-    } else compassdir = eventData.alpha;
+    } else compassdir = 360 - eventData.alpha;
     document.querySelector('#rose').style.webkitTransform =
       'rotateZ(' + compassdir + 'deg)';
     document.querySelector('#headingDegrees').innerHTML = compassdir;
