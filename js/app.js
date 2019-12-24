@@ -1,7 +1,6 @@
 let currentCoords = [61.032637, 4.707087]; // Somewhere in Amsterdam, this is updated.
 // let targetCoords = [52.081587, 4.319679]; // Somewhere in the Hague, KABK.
 let targetCoords = [51.0499992, 3.71667]; // Somewhere in Gent, Belgium.
-// let targetCoords = [36.3395171, 22.4037912]; // Somewhere in Seoul, South Korea
 let bearingDeg = 0;
 
 // -=-=-=-= Calculating the heading of the compass needle -=-=-=-=-=-=-=-=-=-=
@@ -40,49 +39,22 @@ navigator.geolocation.watchPosition(data => {
     targetCoords[0],
     targetCoords[1]
   );
-  
-  // pointer.style.webkitTransform = 'rotateZ(' + bearingDeg + 'deg)';
-  document.querySelector('#headingDegrees').innerHTML = data.heading;
-  document.querySelector('#currentPosition').innerHTML = ` (Lat: ${data.coords.latitude}, Long: ${data.coords.longitude})`;
+
+  pointer.style.webkitTransform = 'rotateZ(' + bearingDeg + 'deg)';
+  document.querySelector(
+    '#currentPosition'
+  ).innerHTML = ` (Lat: ${data.coords.latitude}, Long: ${data.coords.longitude})`;
 });
-  
-  if (window.DeviceOrientationEvent) {
-    // Listen for the deviceorientation event and handle the raw data
-    window.addEventListener('deviceorientation', function(eventData) {
-      let compassdir;
-  
-      if(eventData.webkitCompassHeading) {
-        // Apple works only with this, alpha doesn't work
-        compassdir = eventData.webkitCompassHeading;  
-        console.log(compassdir);
-        // document.querySelector('#pointer').style.webkitTransform = 'rotateZ(' + compassdir + 'deg)';
-        document.querySelector('#alphaDegrees').innerHTML = compassdir;
-      }
-      else compassdir = eventData.alpha;
-      console.log(compassdir);
-      // document.querySelector('#pointer').style.webkitTransform = 'rotateZ(' + compassdir + 'deg)';
-      document.querySelector('#alphaDegrees').innerHTML = compassdir;
-      
-      
-    });
 
-    
-  }
+// TODO: Test the compensation for the device orientation
+window.addEventListener('deviceorientation', onHeadingChange);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function onHeadingChange(e) {
+  console.log(e.alpha);
+  let adjustment = e.alpha;
+  document.querySelector('#compass').style.webkitTransform =
+    'rotateZ(' + adjustment + 'deg)';
+}
 
 //Compass UI
 // (function() {
@@ -509,5 +481,3 @@ navigator.geolocation.watchPosition(data => {
 //   setNightmode(false);
 //   checkLockable();
 // })();
-
-
