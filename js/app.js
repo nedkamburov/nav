@@ -1,7 +1,7 @@
 let currentCoords = [61.032637, 4.707087]; // Somewhere in Amsterdam, this is updated.
 // let targetCoords = [52.081587, 4.319679]; // Somewhere in the Hague, KABK.
-// let targetCoords = [51.0499992, 3.71667]; // Somewhere in Gent, Belgium.
-let targetCoords = [36.3395171, 22.4037912]; // Somewhere in Seoul, South Korea
+let targetCoords = [51.0499992, 3.71667]; // Somewhere in Gent, Belgium.
+// let targetCoords = [36.3395171, 22.4037912]; // Somewhere in Seoul, South Korea
 let bearingDeg = 0;
 
 // -=-=-=-= Calculating the heading of the compass needle -=-=-=-=-=-=-=-=-=-=
@@ -63,13 +63,13 @@ navigator.geolocation.watchPosition(data => {
       if(event.webkitCompassHeading) {
         // Apple works only with this, alpha doesn't work
         compassdir = event.webkitCompassHeading;  
-        document.querySelector('#rose').style.webkitTransform = 'rotateZ(' + compassdir + 'deg)';
+        document.querySelector('#compass').style.webkitTransform = 'rotateZ(' + compassdir + 'deg)';
         document.querySelector('#headingDegrees').innerHTML = compassdir;
             
 
       }
       else compassdir = event.alpha;
-      document.querySelector('#rose').style.webkitTransform = 'rotateZ(' + compassdir + 'deg)';
+      document.querySelector('#compass').style.webkitTransform = 'rotateZ(' + compassdir + 'deg)';
       document.querySelector('#headingDegrees').innerHTML = compassdir;
       
       
