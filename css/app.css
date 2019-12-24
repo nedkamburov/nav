@@ -1,16 +1,16 @@
 @font-face {
   font-family: Muli;
-  src: url("../fonts/Muli-Light.ttf");
+  src: url('../fonts/Muli-Light.ttf');
 }
-
-
-
 
 * {
   box-sizing: border-box;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-family: Muli, serif;
 }
 
@@ -20,7 +20,6 @@ h1 {
   background: transparent url(../images/logo.png) 0% 50% no-repeat;
   background-size: 1.2rem;
 }
-
 
 html {
   font-family: Muli, sans-serif;
@@ -33,33 +32,27 @@ html {
   height: 100%;
 }
 
-
-[class^="column-"] {
+[class^='column-'] {
   display: inline-block;
 }
 
-  .column-33 {
-    width: 33.33333%;
-  }
+.column-33 {
+  width: 33.33333%;
+}
 
-  .column-25 {
-    width: 25%;
-  }
+.column-25 {
+  width: 25%;
+}
 
-  .label {
-    font-size: 0.5rem;
-  }
-
+.label {
+  font-size: 0.5rem;
+}
 
 body {
   padding: 0;
   margin: 0;
   height: 100%;
 }
-
-
-
-
 
 header {
   padding: 0.5rem;
@@ -73,10 +66,6 @@ header {
   transition: transform 0.5s ease-out 0s;
 }
 
-
-
-
-
 .container {
   padding: 5rem 1rem 8rem 1rem;
   overflow: hidden;
@@ -86,10 +75,6 @@ header {
   transition: transform 0.5s ease-out 0s;
 }
 
-
-
-
-
 .compass {
   position: relative;
   width: 100%;
@@ -97,27 +82,36 @@ header {
   text-align: center;
 }
 
-  .compass__rose {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
+.compass__rose {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
 
-    .compass__rose__dial {
-      height: 100%;
-      width: 100%;
-    }
+.compass__target {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
 
-  .compass__pointer {
-    height: 100%;
-    width: 100%;
-  }
+.compass__rose__dial {
+  height: 100%;
+  width: 100%;
+}
 
+.compass__target__point {
+  height: 100%;
+  width: 100%;
+}
 
-
-
+.compass__pointer {
+  height: 100%;
+  width: 100%;
+}
 
 .btn {
   border: 0;
@@ -136,9 +130,9 @@ header {
   outline: none;
 }
 
-  .btn svg * {
-    transition: fill 0.5s ease-out 0s;
-  }
+.btn svg * {
+  transition: fill 0.5s ease-out 0s;
+}
 
 .btn--hide {
   display: none;
@@ -148,34 +142,30 @@ header {
   display: inline-block;
 }
 
-  .btn:active {
-    background-color: rgba(127, 127, 127, 0.5);
-  }
+.btn:active {
+  background-color: rgba(127, 127, 127, 0.5);
+}
 
-  .btn__icon {
-    height: 50%;
-    width: 100%;
-  }
+.btn__icon {
+  height: 50%;
+  width: 100%;
+}
 
-  .btn__icon--active {
-    display: none;
-  }
+.btn__icon--active {
+  display: none;
+}
 
-  .btn__icon--inactive {
-    display: block;
-  }
+.btn__icon--inactive {
+  display: block;
+}
 
 .btn.active .btn__icon--active {
-    display: block;
-  }
+  display: block;
+}
 
 .btn.active .btn__icon--inactive {
-    display: none;
-  }
-
-
-
-
+  display: none;
+}
 
 .status {
   position: fixed;
@@ -191,16 +181,11 @@ header {
 }
 
 .options {
-
 }
 
-  .options__btn {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-
-
-
+.options__btn {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
 
 .popup {
   display: none;
@@ -217,64 +202,59 @@ header {
   display: block;
 }
 
-  .popup__content {
-    max-width: 300px;
-    margin: 0 auto;
+.popup__content {
+  max-width: 300px;
+  margin: 0 auto;
 
+  background-color: white;
+  color: black;
+}
 
-    background-color: white;
-    color: black;
-  }
+.popup__contents {
+  padding: 1rem;
+}
 
-    .popup__contents {
-      padding: 1rem;
-    }
+.popup__inner {
+}
 
-      .popup__inner {
+.popup__inner--hide {
+  display: none;
+}
 
-      }
+.popup__close {
+  display: block;
+  padding: 1rem;
+  text-align: right;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  outline: none;
+}
 
-        .popup__inner--hide {
-          display: none;
-        }
-
-    .popup__close {
-      display: block;
-      padding: 1rem;
-      text-align: right;
-      width: 100%;
-      border: 0;
-      background: transparent;
-      outline: none;
-    }
-
-      .popup__close:hover {
-        text-decoration: underline;
-        cursor: pointer;
-      }
-
-
+.popup__close:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
 
 html.nightmode {
   background: black;
   color: white;
 }
 
-  html.nightmode .container {
-    transform: translateY(-2rem);
-    -webkit-transform: translateY(-2rem);
-  }
+html.nightmode .container {
+  transform: translateY(-2rem);
+  -webkit-transform: translateY(-2rem);
+}
 
-  html.nightmode header {
-    transform: translateY(-4rem);
-    -webkit-transform: translateY(-4rem);
-  }
+html.nightmode header {
+  transform: translateY(-4rem);
+  -webkit-transform: translateY(-4rem);
+}
 
-  html.nightmode .label {
-    color: rgba(127, 127, 127, 0.8);
-  }
+html.nightmode .label {
+  color: rgba(127, 127, 127, 0.8);
+}
 
-  html.nightmode .btn svg * {
-    fill: rgba(127, 127, 127, 0.5);
-  }
-
+html.nightmode .btn svg * {
+  fill: rgba(127, 127, 127, 0.5);
+}

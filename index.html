@@ -1,116 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- manifest="manifest.appcache"> -->
+<!-- manifest="manifest.appcache"> -->
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="theme-color" content="#000000" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="#000000" />
 
-    <link rel="manifest" href="manifest.json" />
-    <link rel="icon" sizes="192x192" href="images/logo-app.png" />
-    <link rel="apple-touch-icon" href="images/logo-app.png" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" sizes="192x192" href="images/logo-app.png" />
+  <link rel="apple-touch-icon" href="images/logo-app.png" />
 
-    <title>Compass</title>
+  <title>Compass</title>
 
-    <link rel="stylesheet" href="css/app.css" />
-  </head>
+  <link rel="stylesheet" href="css/app.css" />
+</head>
 
-  <body>
-    <header>
-      <h1>Compass</h1>
-    </header>
+<body>
+  <header>
+    <h1>Compass</h1>
+  </header>
 
-    <div class="container">
-      <div id="compass">
-        <div id="rose" class="compass__rose">
-          <svg
-            class="compass__rose__dial"
-            viewBox="0 0 130 130"
-            version="1.1"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle
-              cx="65"
-              cy="65"
-              r="56"
-              stroke="white"
-              stroke-width="1"
-              fill="none"
-            />
-            <polyline points="63,9  67,9  65,13" fill="white" />
-            <polyline points="121,63  121,67  119,65" fill="white" />
-            <polyline points="63,121  67,121  65,119" fill="white" />
-            <polyline points="9,63  9,67  11,65" fill="white" />
+  <div class="container">
+    <div class="compass" id='compass'>
+      <div id="rose" class="compass__rose">
+        <svg class="compass__rose__dial" viewBox="0 0 130 130" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="65" cy="65" r="56" stroke="white" stroke-width="1" fill="none" />
+          <polyline points="63,9  67,9  65,13" fill="white" />
+          <polyline points="121,63  121,67  119,65" fill="white" />
+          <polyline points="63,121  67,121  65,119" fill="white" />
+          <polyline points="9,63  9,67  11,65" fill="white" />
 
-            <text
-              x="65"
-              y="4.2"
-              font-size="5"
-              text-anchor="middle"
-              fill="white"
-            >
-              N
-            </text>
-            <text
-              x="127"
-              y="67"
-              font-size="5"
-              text-anchor="middle"
-              fill="white"
-            >
-              E
-            </text>
-            <text
-              x="65"
-              y="129"
-              font-size="5"
-              text-anchor="middle"
-              fill="white"
-            >
-              S
-            </text>
-            <text
-              x="2.8"
-              y="67"
-              font-size="5"
-              text-anchor="middle"
-              fill="white"
-            >
-              W
-            </text>
+          <text x="65" y="4.2" font-size="5" text-anchor="middle" fill="white">
+            N
+          </text>
+          <text x="127" y="67" font-size="5" text-anchor="middle" fill="white">
+            E
+          </text>
+          <text x="65" y="129" font-size="5" text-anchor="middle" fill="white">
+            S
+          </text>
+          <text x="2.8" y="67" font-size="5" text-anchor="middle" fill="white">
+            W
+          </text>
+        </svg>
+
+        <div id="target" class="compass__target">
+          <svg class="compass__target__point" viewBox="0 0 130 130" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="65" cy="65" r="56" stroke="white" stroke-width="1" fill="none" />
+            <polyline points="62,8  68,8  65,13" fill="red" />
           </svg>
         </div>
-
-        <svg
-          id="pointer"
-          class="compass__pointer"
-          viewBox="0 0 130 130"
-          version="1.1"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <polyline points="60,60  70,60  65,15" fill="white" />
-          <!-- <polyline points="60,70  70,70  65,115" fill="white"/> -->
-          <circle
-            cx="65"
-            cy="65"
-            r="7"
-            stroke="white"
-            stroke-width="7"
-            fill="none"
-          />
-        </svg>
       </div>
 
-      <div class="targetPosition">Destination: Seoul</div>
-      <br />
-      <div class="currentPosition">
-        Current heading: <span id="headingDegrees"></span>
-      </div>
-      <div id="currentPosition" class="coords"></div>
+      <svg id="pointer" class="compass__pointer" viewBox="0 0 130 130" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <polyline points="60,60  70,60  65,15" fill="white" />
+        <!-- <polyline points="60,70  70,70  65,115" fill="white"/> -->
+        <circle cx="65" cy="65" r="7" stroke="white" stroke-width="7" fill="none" />
+      </svg>
     </div>
-    <script src="js/app.js"></script>
-  </body>
+
+    <div class="targetPosition">Destination: Seoul</div>
+    <br />
+    <div class="currentPosition">
+      Current heading: <span id="headingDegrees"></span>
+    </div>
+    <div id="currentPosition" class="coords"></div>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+
 </html>

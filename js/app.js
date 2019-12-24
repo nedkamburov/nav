@@ -41,7 +41,7 @@ navigator.geolocation.watchPosition(data => {
     targetCoords[1]
   );
 
-  pointer.style.webkitTransform = 'rotateZ(' + bearingDeg + 'deg)';
+  target.style.webkitTransform = 'rotateZ(' + bearingDeg + 'deg)';
   document.querySelector(
     '#currentPosition'
   ).innerHTML = ` (Lat: ${data.coords.latitude}, Long: ${data.coords.longitude})`;
@@ -55,11 +55,11 @@ if (window.DeviceOrientationEvent) {
     if (eventData.webkitCompassHeading) {
       // Apple works only with this, alpha doesn't work
       compassdir = eventData.webkitCompassHeading;
-      document.querySelector('#compass').style.webkitTransform =
+      document.querySelector('#rose').style.webkitTransform =
         'rotateZ(' + compassdir + 'deg)';
       document.querySelector('#headingDegrees').innerHTML = compassdir;
     } else compassdir = eventData.alpha;
-    document.querySelector('#compass').style.webkitTransform =
+    document.querySelector('#rose').style.webkitTransform =
       'rotateZ(' + compassdir + 'deg)';
     document.querySelector('#headingDegrees').innerHTML = compassdir;
   });
