@@ -41,35 +41,23 @@ navigator.geolocation.watchPosition(data => {
     targetCoords[1]
   );
   
-  pointer.style.webkitTransform = 'rotateZ(' + bearingDeg + 'deg)';
+  // pointer.style.webkitTransform = 'rotateZ(' + bearingDeg + 'deg)';
   document.querySelector('#currentPosition').innerHTML = ` (Lat: ${data.coords.latitude}, Long: ${data.coords.longitude})`;
 });
-
-// // TODO: Test the compensation for the device orientation
-//   window.addEventListener('deviceorientation', onHeadingChange);
-  
-//   function onHeadingChange(e) {
-//     // console.log(e.alpha)
-//     let adjustment = e.alpha;
-//     document.querySelector('#compass').style.webkitTransform = 'rotateZ(' + adjustment + 'deg)';
-    
-//   }
   
   if (window.DeviceOrientationEvent) {
     // Listen for the deviceorientation event and handle the raw data
     window.addEventListener('deviceorientation', function(eventData) {
-      var compassdir;
+      let compassdir;
   
-      if(event.webkitCompassHeading) {
+      if(eventData.webkitCompassHeading) {
         // Apple works only with this, alpha doesn't work
-        compassdir = event.webkitCompassHeading;  
-        document.querySelector('#compass').style.webkitTransform = 'rotateZ(' + compassdir + 'deg)';
+        compassdir = eventData.webkitCompassHeading;  
+        document.querySelector('#pointer').style.webkitTransform = 'rotateZ(' + compassdir + 'deg)';
         document.querySelector('#headingDegrees').innerHTML = compassdir;
-            
-
       }
-      else compassdir = event.alpha;
-      document.querySelector('#compass').style.webkitTransform = 'rotateZ(' + compassdir + 'deg)';
+      else compassdir = eventData.alpha;
+      document.querySelector('#pointer').style.webkitTransform = 'rotateZ(' + compassdir + 'deg)';
       document.querySelector('#headingDegrees').innerHTML = compassdir;
       
       
