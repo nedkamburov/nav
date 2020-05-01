@@ -1,8 +1,8 @@
 let currentCoords = [61.032637, 4.707087]; // Somewhere in Amsterdam, this is updated.
 // let targetCoords = [52.081587, 4.319679]; // Somewhere in the Hague, KABK.
-// let targetCoords = [51.0499992, 3.71667]; // Somewhere in Gent, Belgium.
+let targetCoords = [51.0499992, 3.71667]; // Somewhere in Gent, Belgium.
 // let targetCoords = [37.566536, 126.977966]; // Somewhere in Seoul, South Korea
-let targetCoords = [-26.204103, 28.047304]; // Somewhere in Johannesburg, South Africa
+// let targetCoords = [-26.204103, 28.047304]; // Somewhere in Johannesburg, South Africa
 let bearingDeg = 0;
 
 // -=-=-=-= Calculating the heading of the compass needle -=-=-=-=-=-=-=-=-=-=
@@ -32,7 +32,7 @@ function bearing(startLat, startLng, destLat, destLng) {
   return (brng + 360) % 360;
 }
 
-navigator.geolocation.watchPosition(data => {
+navigator.geolocation.watchPosition((data) => {
   currentCoords[0] = data.coords.latitude;
   currentCoords[1] = data.coords.longitude;
   bearingDeg = bearing(
@@ -50,7 +50,7 @@ navigator.geolocation.watchPosition(data => {
 
 if (window.DeviceOrientationEvent) {
   // Listen for the deviceorientation event and handle the raw data
-  window.addEventListener('deviceorientation', function(eventData) {
+  window.addEventListener('deviceorientation', function (eventData) {
     let compassdir;
 
     if (eventData.webkitCompassHeading) {
