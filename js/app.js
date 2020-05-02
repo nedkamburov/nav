@@ -45,7 +45,7 @@ navigator.geolocation.watchPosition((data) => {
   target.style.webkitTransform = 'rotateZ(' + bearingDeg + 'deg)';
   document.querySelector(
     '#currentPosition'
-  ).innerHTML = ` (Lat: ${data.coords.latitude}, Long: ${data.coords.longitude})`;
+  ).innerHTML = `(Lat: ${data.coords.latitude}, Long: ${data.coords.longitude})`;
 });
 
 if (window.DeviceOrientationEvent) {
